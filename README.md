@@ -1,2 +1,1 @@
-# kina.ra
-official taka kina site
+# W.I.P
