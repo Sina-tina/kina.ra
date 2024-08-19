@@ -1,0 +1,319 @@
+@font-face {
+  font-family: "sitelen seli kiwen";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://raw.githubusercontent.com/lipu-linku/nasin-sitelen/main/sitelenselikiwenasuki.ttf);
+}
+
+html {
+  color-scheme: dark;
+}
+
+html.lightmode {
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Serif", Verdana, "Lucida Sans Unicode", sans-serif;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+}
+:root {
+  --bg-color: #000000;
+  --txt-color: hsl(222, 100%, 99%);
+  --highlight-color: hsl(34, 100%, 63%);
+  --link-color: hsl(172, 100%, 26%);
+  --shade-color: hsl(222, 12%, 60%);
+  --border-color: hsl(222, 12%, 20%);
+  --heavy-border-color: hsl(222, 12%, 40%);
+  --bg-alt-color: hsl(222, 0%, 7%);
+}
+.lightmode {
+  --bg-color: #ffffff;
+  --txt-color: hsl(222, 12%, 8%);
+  --highlight-color: hsl(34, 92%, 50%);
+  --link-color: hsl(172, 100%, 26%);
+  --shade-color: hsl(222, 28%, 45%);
+  --border-color: hsl(222, 28%, 75%);
+  --heavy-border-color: hsl(222, 28%, 45%);
+  --bg-alt-color: hsl(222, 0%, 93%);
+}
+*:focus-visible {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  padding: 0.5rem 1rem;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav > :last-child {
+  justify-content: end;
+}
+
+nav img {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+}
+.lightmode nav img {
+  filter: invert(100%);
+}
+
+.search_container {
+  max-width: 20rem;
+  flex-basis: 100%;
+  flex-shrink: 0;
+}
+
+.searchbar {
+  text-align: center;
+  font-size: 150%;
+  font-family: inherit;
+  font-weight: bold;
+  font-style: italic;
+  width: 100%;
+  background-color: var(--bg-alt-color);
+  color: var(--highlight-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0;
+}
+
+#checkbox_lightmode {
+  cursor: pointer;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+  opacity: 0;
+}
+
+#checkbox_lightmode_wrapper {
+  position: relative;
+}
+
+.selector {
+  font: inherit;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+
+  cursor: pointer;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+}
+
+.round {
+  border-radius: 100%;
+}
+.round + img {
+  border-radius: 100%;
+}
+.selector + img {
+  pointer-events: none;
+}
+.selector:focus + img {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 2px;
+}
+
+.selector_wrapper {
+  position: relative;
+}
+
+.main_input {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.main_input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--highlight-color);
+  border-color: var(--highlight-color);
+}
+
+#normal_mode_button {
+  font: inherit;
+  color: inherit;
+  display: none;
+  background: var(--bg-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  margin: 0 auto;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+#normal_mode_button:hover {
+  background: var(--highlight-color);
+  border-color: var(--highlight-color);
+  color: var(--bg-color);
+}
+
+@media screen and (max-width: 700px) {
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo" "buttons" "search";
+    gap: 0.5rem;
+    top: -3rem;
+  }
+
+  nav > :first-child {
+    white-space: nowrap;
+  }
+
+  nav > .search_container {
+    grid-area: search;
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+.disclaimer {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+.navlink {
+  display: block;
+  margin-top: 1rem;
+}
+
+code {
+  color: var(--shade-color);
+  font-family: "Courier New";
+  font-weight: bold;
+  margin: 4px;
+}
+h1,
+h2 {
+  color: var(--highlight-color);
+}
+::placeholder {
+  color: var(--shade-color);
+  opacity: 0.5;
+}
+.page_width_limiter {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1000px;
+}
+@media screen and (max-width: 550px) {
+  .page_width_limiter {
+    padding: 0;
+  }
+}
+
+#dictionary {
+  margin-top: 1rem;
+}
+
+.entry {
+  display: flex;
+  text-align: initial;
+  flex-direction: column;
+  padding: 5px 5px 0px 0px;
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin: 10px 0px;
+  gap: 10px;
+}
+.entry:hover {
+  border-top: 1px solid var(--heavy-border-color);
+  border-left: 1px solid var(--heavy-border-color);
+}
+.word_compact {
+  display: flex;
+  padding: 0px 10px;
+}
+.word_detailed {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0px 10px;
+}
+.word_main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.word_info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.word {
+  display: inline-block;
+  font-size: 150%;
+  color: var(--highlight-color);
+  font-weight: bold;
+  font-style: italic;
+  vertical-align: middle;
+}
+.sitelenpona {
+  display: inline-block;
+  font-family: "sitelen seli kiwen";
+  font-size: 50px;
+  width: 60px;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.shaded {
+  color: var(--shade-color);
+}
+.categories {
+  font-size: 95%;
+  color: var(--shade-color);
+  margin-left: 10px;
+}
+#checkbox_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
