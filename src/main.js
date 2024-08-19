@@ -536,7 +536,7 @@ function normal_mode() {
   window.location.search = ""; // remove query and refresh
 }
 
-const WORDS_URL = "https://raw.githubusercontent.com/lipu-linku/sona/main/api/raw/words.json";
+const WORDS_URL = "words/source/definitions.toml";
 const data = JSON.parse(Get(WORDS_URL));
 const LANGS_URL = "https://raw.githubusercontent.com/lipu-linku/sona/main/api/raw/languages.json";
 const languages = JSON.parse(Get(LANGS_URL));
